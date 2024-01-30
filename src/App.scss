@@ -16,7 +16,7 @@
   background-color: v.$color-dark-blue;
   padding: 40px;
   border-radius: 10px;
-  border-top-right-radius: 80px;
+  border-top-right-radius: 100px;
   width: 275px;
   display: flex;
   flex-direction: column;
@@ -90,15 +90,17 @@
   & > div:not(.pop):not(.gradient-bar-wrapper) {
     display: flex;
     justify-content: space-between;
+    font-weight: 700;
+    font-size: 12px;
   }
 
   .pop {
     position: absolute;
     background-color: #fff;
-    padding: 8px 30px;
+    padding: 10px 30px;
     border-radius: 10px;
     border-bottom-right-radius: 0;
-    right: 30px;
+    right: 35px;
     top: -45px;
     font-weight: 700;
     text-transform: uppercase;
@@ -108,14 +110,15 @@
     align-items: center;
 
     &:after {
-      background-color: #fff;
-      content:"\00a0";
+      content:"";
       display: block;
-      height: 24px;
-      width: 24px;
       position: absolute;
-      bottom: -7.5px;
-      transform: rotate(47deg) skew(5deg);
+      border-top: 12px solid #fff;
+      border-bottom: 12px solid transparent;
+      border-right: 12px solid #fff;
+      border-left: 12px solid transparent;    
+      bottom: -24px;
+      right: 0;
     }
 
     & span {
@@ -123,6 +126,40 @@
       font-size: 36px;
       font-weight: 800;
       padding-right: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .fylo-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .fylo {
+    width: 250px;
+  }
+
+  .storage {
+    width: 250px;
+    padding-bottom: 50px;
+
+    .gradient-bar-wrapper {
+      width: 100%;
+    }
+
+    .pop {
+      padding: 10px 25px;
+      border-radius: 10px;
+      border-bottom-right-radius: 10px;
+      right: 50%;
+      transform: translateX(50%);
+      top: auto;
+      bottom: -40px;
+      text-wrap: nowrap;
+      &:after {
+        border: none;    
+      }
     }
   }
 }
